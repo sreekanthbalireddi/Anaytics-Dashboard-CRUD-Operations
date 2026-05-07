@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Analytics Feature Testing" verbose="1" parallel="none">
+	<parameter name="environment" value="ociqaintx" />
+	<parameter name="application" value="incent" />
+	<parameter name="mode" value="gui" />
+	<parameter name="browser" value="chrome" />
+	<parameter name="grs" value="off" />
+	<parameter name="navigationType" value="gui-new" />
+
+	<test name="AnalyticsUsageTrackingDashboardCRUD">
+		<classes>
+			<class name="com.practice.analytics.home.AnalyticsUsageTrackingAndDashboardCRUDTest" />
+		</classes>
+	</test>
+</suite>

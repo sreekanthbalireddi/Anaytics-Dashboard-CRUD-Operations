@@ -1,0 +1,31 @@
+Analytics feature task (Desktop)
+==================================
+
+Build and run:
+
+  cd "/path/to/Analytics feature task"
+  mvn clean test -Denvironment=ociqaintx
+
+Credentials and URLs live under:
+
+  src/main/resources/environment/<env>/
+
+Edit `ociqaintx.properties` (API bootstrap fields) and `ociqaintx_users.properties`
+(key `analytics.gui.user` as username:password) before running against a real tenant.
+
+ChromeDriver path issues on macOS (older automation libs expecting `/usr/local/chromedriver_mac`):
+
+  chmod +x scripts/link-chromedriver-mac.sh
+  ./scripts/link-chromedriver-mac.sh
+
+IntelliJ: Run → TestNG → suite file `testng.xml`.
+
+If tests fail in @BeforeClass, open the first stack trace (suite-level failures hide detail).
+
+Branding / dependencies
+-----------------------
+Application and page-object code lives under com.practice.analytics and only talks to
+com.practice.selenium adapters. Those adapters still delegate to a large legacy automation
+JAR (Maven coordinates in pom.xml). To publish this repo publicly you should either remove
+that dependency and reimplement login/DOM helpers, or install your own copy of the support
+library under private Maven coordinates and keep it out of git.
